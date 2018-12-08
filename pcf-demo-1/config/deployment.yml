@@ -1,11 +1,4 @@
-# Templates at the following paths can be used
-# to customize the deployment
-pcf_terraform_templates_path: pcf-demo-1/templates/terraform
-pcf_tile_templates_path: pcf-demo-1/templates/tile
-
-# String containing list of environments separated by whitespace
-environments: |
-  sandbox
+locale: Asia/Dubai
 
 # PCF Ops Manager minor version to track
 opsman_major_minor_version: 2\.3\.[0-9]+$
