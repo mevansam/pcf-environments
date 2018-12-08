@@ -17,16 +17,16 @@
 # GCP credentials
 #
 
-export TF_VAR_gcp_credentials=
-export TF_VAR_gcp_region=
-export TF_VAR_gcp_storage_access_key=
-export TF_VAR_gcp_storage_secret_key=
+export TF_VAR_gcp_credentials=$GOOGLE_CREDENTIALS
+export TF_VAR_gcp_region=$GOOGLE_REGION
+export TF_VAR_gcp_storage_access_key=$GCS_STORAGE_ACCESS_KEY
+export TF_VAR_gcp_storage_secret_key=$GCS_STORAGE_SECRET_KEY
 
 #
 # Terraform state attributes
 #
 
-export TF_VAR_terraform_state_bucket=
+export TF_VAR_terraform_state_bucket=tfstate-${GOOGLE_REGION}
 
 #
 # Certificate Subject data for certificate creation
@@ -47,8 +47,8 @@ export TF_VAR_terraform_state_bucket=
 
 export TF_VAR_vpc_name=pcf-demo-2
 #export TF_VAR_max_azs=1
-export TF_VAR_vpc_dns_zone=
-export TF_VAR_vpc_parent_dns_zone_name=
+export TF_VAR_vpc_dns_zone=demo2.pocs.pcfs.io
+export TF_VAR_vpc_parent_dns_zone_name=pocs-pcfs-io
 
 #
 # Bastion inception instance variables
@@ -79,13 +79,13 @@ export TF_VAR_bastion_allow_public_ssh=true
 # VPC SMTP Server Relay
 #
 
-export TF_VAR_smtp_relay_host=
-export TF_VAR_smtp_relay_port=
-export TF_VAR_smtp_relay_api_key=
+export TF_VAR_smtp_relay_host=smtp.sendgrid.net
+export TF_VAR_smtp_relay_port=2525
+export TF_VAR_smtp_relay_api_key=$SENDGRID_API_KEY
 
 # Email to send notifications to
 
-export TF_VAR_notification_email=
+export TF_VAR_notification_email=msamaratunga@pivotal.io
 
 #
 # Local file path to write SSH private key for bastion instance
@@ -179,4 +179,4 @@ export TF_VAR_pcf_tile_templates_path=pcf-demo-2/templates/tile
 # PCF Install params
 #
 
-export TF_VAR_pivnet_token=
+export TF_VAR_pivnet_token=$PIVNET_TOKEN
