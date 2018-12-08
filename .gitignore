@@ -1,9 +1,7 @@
-#  Local .terraform directories
-**/.terraform/*
+# Exclude all hidden files
+.*
+*.log
+*-vars.yml
 
-# .tfstate files
-*.tfstate
-*.tfstate.*
-
-# .tfvars files
-*.tfvars
+demo/
+tmp/
