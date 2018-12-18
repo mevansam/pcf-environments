@@ -1,0 +1,239 @@
+#!/bin/bash
+
+#
+# Environment variables required by Terraform 
+# to bootstrap and install the PCF environment
+#
+
+#
+# Externalized Variables
+#
+
+#export TF_VAR_trace=true
+#export TF_VAR_autostart_deployment_pipelines=true
+
+#
+# vCenter IaaS Environment
+#
+
+export TF_VAR_vcenter_datacenter=
+
+# Comma separated list of availability zone clusters
+
+export TF_VAR_vcenter_clusters=
+
+# Comma separated list of ephemeral data stores
+
+export TF_VAR_vcenter_ephemeral_datastores=
+
+# Comma separated list of persistent data stores
+
+export TF_VAR_vcenter_persistant_datastores=
+
+# VCenter Networks
+
+export TF_VAR_dmz_network=
+export TF_VAR_dmz_network_cidr=
+export TF_VAR_dmz_network_gateway=
+export TF_VAR_admin_network=
+export TF_VAR_admin_network_cidr=
+export TF_VAR_admin_network_gateway=
+
+#
+# Terraform state attributes
+#
+
+export TF_VAR_terraform_state_s3_endpoint=
+export TF_VAR_terraform_state_bucket=
+
+#
+# Certificate Subject data for certificate creation
+#
+
+#export TF_VAR_company_name=Pivotal Services
+#export TF_VAR_organization_name=PSO EMEA
+#export TF_VAR_locality=Dubai
+#export TF_VAR_province=Dubayy
+#export TF_VAR_country=AE
+
+#
+# VPC configuration
+#
+
+export TF_VAR_vpc_name=pcf-demo-4
+#export TF_VAR_max_azs=1
+export TF_VAR_vpc_dns_zone=
+export TF_VAR_vpc_cidr=
+
+#
+# Bastion inception instance variables
+#
+
+#export TF_VAR_bastion_instance_type=n1-standard-2
+export TF_VAR_bastion_data_disk_size=
+
+#
+# Bastion access configuration
+#
+
+#export TF_VAR_bastion_host_name=bastion
+#export TF_VAR_bastion_admin_ssh_port=22
+
+# This needs to be a name other than 'root' or 'admin' otherwise 
+# the user setup on the bastion will fail and you will be unable 
+# to login to the instance.
+
+export TF_VAR_bastion_admin_user=bastion-admin
+export TF_VAR_bastion_setup_vpn=false
+#export TF_VAR_bastion_vpn_port=2295
+#export TF_VAR_bastion_vpn_protocol=udp
+#export TF_VAR_bastion_vpn_network=192.168.111.0/24
+export TF_VAR_bastion_allow_public_ssh=true
+
+#
+# VPC SMTP Server Relay
+#
+
+export TF_VAR_smtp_relay_host=
+export TF_VAR_smtp_relay_port=
+export TF_VAR_smtp_relay_api_key=
+
+# Email to forward notifications to
+
+export TF_VAR_notification_email=
+
+#
+# Local file path to write SSH private key for bastion instance
+#
+
+#export TF_VAR_ssh_key_file_path=/Users/msamaratunga/Work/pivotal/pcf-environments/.workspace/pcf-demo-4
+
+#
+# Jumpbox
+#
+
+#export TF_VAR_deploy_jumpbox=false
+#export TF_VAR_jumpbox_data_disk_size=160
+
+#
+# Concourse Automation common attributes
+#
+#
+# Cloud Automation Pipelines (CAPs) repository
+#
+
+#export TF_VAR_automation_pipelines_repo=https://github.com/mevansam/caps.git
+#export TF_VAR_automation_pipelines_branch=master
+
+#
+# Environment configuration repository
+#
+
+export TF_VAR_env_config_repo=https://github.com/mevansam/pcf-environments.git
+export TF_VAR_env_config_repo_branch=master
+export TF_VAR_env_config_path=pcf-demo-4/config
+
+#
+# Automation extensions git repository
+#
+
+export TF_VAR_automation_extensions_repo=https://github.com/mevansam/pcf-environments.git
+export TF_VAR_automation_extensions_repo_branch=master
+
+# Path to terraform template overrides in the 'automation extensions' 
+# repository for creating PCF PAS infrastructure.
+
+export TF_VAR_pcf_terraform_templates_path=pcf-demo-4/templates/terraform
+
+# Path to json template overrides in the 'automation extensions' 
+# repository for configuring PCF tiles. This folder should have 
+# folders named by the tile name as provided in the 'products' 
+# variable below.
+
+export TF_VAR_pcf_tile_templates_path=pcf-demo-4/templates/tile
+
+# The list of PCF environments to deploy.
+
+#export TF_VAR_pcf_environments='["sandbox"]'
+
+# The PCF Networks to create. The order in which subnets should 
+# be configured are provided via the 'subnet_config_order' key.
+# If you need to add subnets always add to the end of this list.
+# Otherwise any reordering will result in networks being recreated 
+# and may have undesired outcomes.
+
+#export TF_VAR_pcf_networks='{
+#  sandbox = {
+#    service_networks    = "services,dynamic-services"
+#    subnet_config_order = "infrastructure,pas-1,services-1,dynamic-services-1,monitoring"
+#  }
+#}'
+
+# The CIDRs of the PCF Networks subnets. The range 192.168.0.0/22 
+# is reserved for bootstrap services and should not be used for PCF 
+# environments.  Multiple subnets must post-fix the network name 
+# with '-#' for each subnet. Subnets are additive once they have 
+# been created.
+
+#export TF_VAR_pcf_network_subnets='{
+#  sandbox = {
+#    infrastructure     = "192.168.101.0/26"
+#    pas-1              = "192.168.4.0/22"
+#    services-1         = "192.168.8.0/22"
+#    dynamic-services-1 = "192.168.12.0/22"
+#    monitoring         = "192.168.101.64/26"
+#  }
+#}
+
+# Comma separated list of additional DNS hosts to use
+# for instances deployed to the pcf networks.
+
+#export TF_VAR_pcf_network_dns=169.254.169.254
+
+#
+# PCF Install params
+#
+
+export TF_VAR_pivnet_token=
+
+# PCF Ops Manager minor version to track
+
+export TF_VAR_opsman_major_minor_version=
+
+# List of products to install. This should be a space 
+# separated list of:
+#
+# product_name:product_slug/product_version_regex[:errands_to_disable[:errands_to_enable]]
+#
+# The 'errands_to_disable' and 'errands_to_enable' fields 
+# should consist of comma separated errand names.
+
+export TF_VAR_products=
+
+# Number of Diego Cells to deploy
+
+#export TF_VAR_num_diego_cells=1
+
+#
+# Backup / Restore pipeline params
+#
+
+#export TF_VAR_backup_interval=1h
+#export TF_VAR_backup_interval_start=02:00 AM
+#export TF_VAR_backup_interval_stop=02:30 AM
+#export TF_VAR_backup_age=2
+
+#
+# Stop / Start event pipeline trigger time periods
+#
+# Time in 24h format (HH:MM) when deployments in the
+# PCF environment should be stopped and VMs shutdown
+
+#export TF_VAR_pcf_stop_at=0
+#export TF_VAR_pcf_stop_trigger_days=[Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+
+# Time in 24h format (HH:MM) when deployments
+# in the PCF environment should be started
+
+#export TF_VAR_pcf_start_at=0
+#export TF_VAR_pcf_start_trigger_days=[Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
