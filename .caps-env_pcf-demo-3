@@ -17,6 +17,18 @@
 #
 
 export TF_VAR_vcenter_datacenter=
+
+# Comma separated list of availability zone clusters
+
+export TF_VAR_vcenter_clusters=
+
+# Comma separated list of ephemeral data stores
+
+export TF_VAR_vcenter_ephemeral_datastores=
+
+# Comma separated list of persistent data stores
+
+export TF_VAR_vcenter_persistant_datastores=
 export TF_VAR_dmz_network=
 export TF_VAR_dmz_network_cidr=
 export TF_VAR_dmz_network_gateway=
