@@ -29,13 +29,15 @@ export TF_VAR_vcenter_ephemeral_datastores=
 # Comma separated list of persistent data stores
 
 export TF_VAR_vcenter_persistant_datastores=
+
+# VCenter Networks
+
 export TF_VAR_dmz_network=
 export TF_VAR_dmz_network_cidr=
 export TF_VAR_dmz_network_gateway=
 export TF_VAR_admin_network=
 export TF_VAR_admin_network_cidr=
 export TF_VAR_admin_network_gateway=
-export TF_VAR_gcp_storage_secret_key=
 
 #
 # Terraform state attributes
