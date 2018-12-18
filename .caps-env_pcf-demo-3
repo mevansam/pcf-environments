@@ -16,7 +16,7 @@
 # vCenter IaaS Environment
 #
 
-export TF_VAR_vmw_datacenter=
+export TF_VAR_vcenter_datacenter=
 export TF_VAR_dmz_network=
 export TF_VAR_dmz_network_cidr=
 export TF_VAR_dmz_network_gateway=
