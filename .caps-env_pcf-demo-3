@@ -17,28 +17,28 @@
 # vCenter IaaS Environment
 #
 
-export TF_VAR_vcenter_datacenter=$VCENTER_DATACENTER
+export TF_VAR_vcenter_datacenter='Datacenter'
 
 # Comma separated list of availability zone clusters
 
-export TF_VAR_vcenter_clusters=$VCENTER_CLUSTER
+export TF_VAR_vcenter_clusters='Cluster'
 
 # Comma separated list of ephemeral data stores
 
-export TF_VAR_vcenter_ephemeral_datastores=$VCENTER_DATASTORE
+export TF_VAR_vcenter_ephemeral_datastores='LUN01'
 
 # Comma separated list of persistent data stores
 
-export TF_VAR_vcenter_persistant_datastores=$VCENTER_DATASTORE
+export TF_VAR_vcenter_persistant_datastores='LUN01'
 
 # VCenter Networks
 
-export TF_VAR_dmz_network=$VCENTER_DMZ_NETWORK
-export TF_VAR_dmz_network_cidr=$VCENTER_DMZ_NETWORK_CIDR
-export TF_VAR_dmz_network_gateway=$VCENTER_DMZ_NETWORK_GATEWAY
-export TF_VAR_admin_network=$VCENTER_ADMIN_NETWORK
-export TF_VAR_admin_network_cidr=$VCENTER_ADMIN_NETWORK_CIDR
-export TF_VAR_admin_network_gateway=$VCENTER_ADMIN_NETWORK_GATEWAY
+export TF_VAR_dmz_network=
+export TF_VAR_dmz_network_cidr=
+export TF_VAR_dmz_network_gateway=
+export TF_VAR_admin_network='VM Network'
+export TF_VAR_admin_network_cidr='10.193.237.0/24'
+export TF_VAR_admin_network_gateway='10.193.237.1'
 
 #
 # Terraform state attributes
@@ -64,14 +64,16 @@ export TF_VAR_terraform_state_bucket=tfstate-eu-central-1
 export TF_VAR_vpc_name=pcf-demo-3
 #export TF_VAR_max_azs=1
 export TF_VAR_vpc_dns_zone=demo3.pocs.pcfs.io
-export TF_VAR_vpc_cidr=$VCENTER_VPC_CIDR
+export TF_VAR_vpc_cidr='10.193.237.0/24'
 
 #
 # Bastion inception instance variables
 #
 
-#export TF_VAR_bastion_instance_type=n1-standard-2
-export TF_VAR_bastion_data_disk_size=$VCENTER_BASTION_DATA_DISK_SIZE
+#export TF_VAR_bastion_instance_memory=4096
+#export TF_VAR_bastion_instance_cpus=2
+#export TF_VAR_bastion_root_disk_size=50
+export TF_VAR_bastion_data_disk_size=300
 
 #
 # Bastion access configuration
