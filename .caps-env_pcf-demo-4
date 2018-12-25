@@ -48,6 +48,9 @@ export TF_VAR_admin_network_gateway=
 # Terraform state attributes
 #
 
+export TF_VAR_s3_access_key_id=
+export TF_VAR_s3_secret_access_key=
+#export TF_VAR_s3_default_region=s3_default_region
 export TF_VAR_terraform_state_s3_endpoint=
 export TF_VAR_terraform_state_bucket=
 
@@ -163,6 +166,14 @@ export TF_VAR_pcf_tile_templates_path=pcf-demo-4/templates/tile
 
 #export TF_VAR_pcf_environments='["sandbox"]'
 
+# Network configuration for each Ops Manager instance within
+# each environment. Each configuration should be a map of
+# "vcenter_network_name", "network_cidr", "network_gateway" 
+# and "ip"
+
+#export TF_VAR_pcf_ops_manager_network='{
+#}'
+
 # The PCF logical networks to create. The order in which subnets 
 # should be configured are provided via the 'subnet_config_order'
 # key. If you need to add subnets always add to the end of this 
@@ -181,8 +192,8 @@ export TF_VAR_pcf_tile_templates_path=pcf-demo-4/templates/tile
 # environments.  Multiple subnets must post-fix the network name 
 # with '-#' for each subnet. Subnets are additive once they have 
 # been created. Each subnet configuration should be a map of
-# "vcenter_network_name", "network_cidr" and "reserved_ip_ranges"
-# used to declare the logical Bosh networks.
+# "vcenter_network_name", "network_cidr", "network_gateway" and 
+# "reserved_ip_ranges" used to declare the logical Bosh networks.
 #
 # For example:
 #
@@ -191,22 +202,26 @@ export TF_VAR_pcf_tile_templates_path=pcf-demo-4/templates/tile
 #     infrastructure = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.32,10.193.237.40-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.32,10.193.237.40-10.193.237.254"
 #     }
 #     pas-1 = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.39,10.193.237.70-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.39,10.193.237.70-10.193.237.254"
 #     }
 #     services-1 = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.69,10.193.237.100-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.69,10.193.237.100-10.193.237.254"
 #     }
-#     dynamic-services-1 =  {
+#     dynamic-services-1 = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.99,10.193.237.150-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.99,10.193.237.150-10.193.237.254"
 #     }
 #   }
 # }'
