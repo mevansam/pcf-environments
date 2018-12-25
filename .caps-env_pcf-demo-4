@@ -211,6 +211,9 @@ export TF_VAR_pcf_tile_templates_path=pcf-demo-4/templates/tile
 #   }
 # }'
 
+#export TF_VAR_pcf_network_subnets='{
+#}'
+
 #
 # PCF Install params
 #
