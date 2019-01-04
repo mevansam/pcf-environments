@@ -145,7 +145,7 @@ export TF_VAR_notification_email=msamaratunga@pivotal.io
 #
 
 #export TF_VAR_automation_pipelines_repo=https://github.com/mevansam/caps.git
-#export TF_VAR_automation_pipelines_branch=master
+export TF_VAR_automation_pipelines_branch=dev
 
 #
 # Environment configuration repository
