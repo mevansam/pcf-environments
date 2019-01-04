@@ -83,12 +83,14 @@ export TF_VAR_vpc_cidr=
 #export TF_VAR_bastion_data_disk_size=250
 
 # IP for Bastion NIC on DMZ network segment. 
-# Defaults to 31st IP of DMZ network's CIDR.
+# Defaults to 31st IP of DMZ network's CIDR
+# if value is empty.
 
 export TF_VAR_bastion_dmz_ip=
 
 # IP for Bastion NIC on Admin network segment. 
-# Defaults to 31st IP of DMZ network's CIDR.
+# Defaults to 31st IP of DMZ network's CIDR
+# if value is empty.
 
 export TF_VAR_bastion_admin_ip=
 
