@@ -79,8 +79,8 @@ export TF_VAR_vpc_cidr=
 
 #export TF_VAR_bastion_instance_memory=4096
 #export TF_VAR_bastion_instance_cpus=2
-export TF_VAR_bastion_root_disk_size=
-export TF_VAR_bastion_data_disk_size=
+#export TF_VAR_bastion_root_disk_size=50
+#export TF_VAR_bastion_data_disk_size=250
 
 # IP for Bastion NIC on DMZ network segment. 
 # Defaults to 31st IP of DMZ network's CIDR.
