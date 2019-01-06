@@ -99,6 +99,7 @@ export TF_VAR_bastion_admin_ip=
 #
 
 #export TF_VAR_bastion_host_name=bastion
+export TF_VAR_bastion_dns=10.193.237.2
 #export TF_VAR_bastion_admin_ssh_port=22
 
 # This needs to be a name other than 'root' or 'admin' otherwise 
@@ -106,9 +107,9 @@ export TF_VAR_bastion_admin_ip=
 # to login to the instance.
 
 export TF_VAR_bastion_admin_user=bastion-admin
-export TF_VAR_bastion_setup_vpn=false
-#export TF_VAR_bastion_vpn_port=2295
-#export TF_VAR_bastion_vpn_protocol=udp
+export TF_VAR_bastion_setup_vpn=true
+export TF_VAR_bastion_vpn_port=2222
+export TF_VAR_bastion_vpn_protocol=tcp
 #export TF_VAR_bastion_vpn_network=192.168.111.0/24
 export TF_VAR_bastion_allow_public_ssh=true
 
@@ -180,15 +181,23 @@ export TF_VAR_pcf_tile_templates_path=pcf-demo-3/templates/tile
 
 # Network configuration for each Ops Manager instance within
 # each environment. Each configuration should be a map of
-# "vcenter_network_name", "network_cidr", "network_gateway" 
-# and "ip"
+#
+#  - cluster
+#  - datastore
+#  - network
+#  - network_cidr
+#  - network_gateway
+#  - ip
+#
 
-export TF_VAR_pcf_ops_manager_network='{
+export TF_VAR_pcf_opsman_vcenter_config='{
   sandbox = {
-    vcenter_network_name = "VM Network"
-    network_cidr         = "10.193.237.0/24"
-    network_gateway      = "10.193.237.1"
-    ip                   = "10.193.237.32"
+    cluster         = "Cluster"
+    datastore       = "LUN01"
+    network         = "VM Network"
+    network_cidr    = "10.193.237.0/24"
+    network_gateway = "10.193.237.1"
+    ip              = "10.193.237.40"
   }
 }'
 
@@ -246,25 +255,25 @@ export TF_VAR_pcf_network_subnets='{
       vcenter_network_name = "VM Network"
       network_cidr         = "10.193.237.0/24"
       network_gateway      = "10.193.237.1"
-      reserved_ip_ranges   = "10.193.237.1-10.193.237.32,10.193.237.40-10.193.237.254"
+      reserved_ip_ranges   = "10.193.237.1-10.193.237.40,10.193.237.50-10.193.237.254"
     }
     pas-1 = {
       vcenter_network_name = "VM Network"
       network_cidr         = "10.193.237.0/24"
       network_gateway      = "10.193.237.1"
-      reserved_ip_ranges   = "10.193.237.1-10.193.237.39,10.193.237.70-10.193.237.254"
+      reserved_ip_ranges   = "10.193.237.1-10.193.237.49,10.193.237.80-10.193.237.254"
     }
     services-1 = {
       vcenter_network_name = "VM Network"
       network_cidr         = "10.193.237.0/24"
       network_gateway      = "10.193.237.1"
-      reserved_ip_ranges   = "10.193.237.1-10.193.237.69,10.193.237.100-10.193.237.254"
+      reserved_ip_ranges   = "10.193.237.1-10.193.237.79,10.193.237.110-10.193.237.254"
     }
     dynamic-services-1 = {
       vcenter_network_name = "VM Network"
       network_cidr         = "10.193.237.0/24"
       network_gateway      = "10.193.237.1"
-      reserved_ip_ranges   = "10.193.237.1-10.193.237.99,10.193.237.150-10.193.237.254"
+      reserved_ip_ranges   = "10.193.237.1-10.193.237.109,10.193.237.150-10.193.237.254"
     }
   }
 }'
