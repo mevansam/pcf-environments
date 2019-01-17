@@ -55,6 +55,9 @@ export TF_VAR_vcenter_persistant_datastores=
 # all singleton service like Ops
 # Manager will be deployed.
 
+#export TF_VAR_availability_zones='{
+#}'
+
 # VCenter Networks
 
 export TF_VAR_dmz_network=
