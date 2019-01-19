@@ -23,10 +23,6 @@ export TF_VAR_vsphere_password="$VSPHERE_PASSWORD"
 export TF_VAR_vsphere_allow_unverified_ssl="$VSPHERE_ALLOW_UNVERIFIED_SSL"
 export TF_VAR_vcenter_datacenter='Datacenter'
 
-# Comma separated list of availability zone clusters
-
-export TF_VAR_vcenter_clusters='Cluster'
-
 # Comma separated list of ephemeral data stores
 
 export TF_VAR_vcenter_ephemeral_datastores='LUN01'
@@ -34,6 +30,49 @@ export TF_VAR_vcenter_ephemeral_datastores='LUN01'
 # Comma separated list of persistent data stores
 
 export TF_VAR_vcenter_persistant_datastores='LUN01'
+
+# Map of availability zones defined
+# as cluster => resource pool pairs
+# for each environment.
+#
+# example:
+#
+# {
+#   sandbox = {
+#     az1 = {
+#       cluster       = cluster_1 
+#       resource_pool = "cl1rp1"
+#     }
+#     az2 = {
+#       cluster       = cluster_2
+#       resource_pool = "cl1rp2"
+#     }
+#   }
+# }
+#
+# If resource pool name is empty then
+# the clusters default resource pool
+# will be used. The first entry is
+# the default singleton zone where
+# all singleton service like Ops
+# Manager will be deployed.
+
+export TF_VAR_availability_zones='{
+  sandbox = {
+    az1 = {
+      cluster = "Cluster"
+      resource_pool = "az1"
+    }
+    az2 = {
+      cluster = "Cluster"
+      resource_pool = "az2"
+    }
+    az3 = {
+      cluster = "Cluster"
+      resource_pool = "az3"
+    }
+  }
+}'
 
 # VCenter Networks
 
@@ -69,7 +108,6 @@ export TF_VAR_terraform_state_bucket=tfstate-eu-central-1
 #
 
 export TF_VAR_vpc_name=pcf-demo-3
-#export TF_VAR_max_azs=1
 export TF_VAR_vpc_dns_zone=demo3.pocs.pcfs.io
 export TF_VAR_vpc_cidr='10.193.237.0/24'
 
@@ -182,22 +220,24 @@ export TF_VAR_pcf_tile_templates_path=pcf-demo-3/templates/tile
 # Network configuration for each Ops Manager instance within
 # each environment. Each configuration should be a map of
 #
-#  - cluster
+#  - availability_zone
 #  - datastore
 #  - network
 #  - network_cidr
 #  - network_gateway
 #  - ip
 #
+# The "availability_zone" must reference one of the zones
+# defined in the "TF_VAR_availability_zones" variable.
 
 export TF_VAR_pcf_opsman_vcenter_config='{
   sandbox = {
-    cluster         = "Cluster"
-    datastore       = "LUN01"
-    network         = "VM Network"
-    network_cidr    = "10.193.237.0/24"
-    network_gateway = "10.193.237.1"
-    ip              = "10.193.237.40"
+    availability_zone = "az1"
+    datastore         = "LUN01"
+    network           = "VM Network"
+    network_cidr      = "10.193.237.0/24"
+    network_gateway   = "10.193.237.1"
+    ip                = "10.193.237.40"
   }
 }'
 
@@ -229,22 +269,26 @@ export TF_VAR_pcf_networks='{
 #     infrastructure = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.32,10.193.237.40-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.32,10.193.237.40-10.193.237.254"
 #     }
 #     pas-1 = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.39,10.193.237.70-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.39,10.193.237.70-10.193.237.254"
 #     }
 #     services-1 = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.69,10.193.237.100-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.69,10.193.237.100-10.193.237.254"
 #     }
 #     dynamic-services-1 = {
 #       vcenter_network_name = "VM Network"
 #       network_cidr         = "10.193.237.0/24"
-#       reserved_ip_ranges     = "10.193.237.1-10.193.237.99,10.193.237.150-10.193.237.254"
+#       network_gateway      = "10.193.237.1"
+#       reserved_ip_ranges   = "10.193.237.1-10.193.237.99,10.193.237.150-10.193.237.254"
 #     }
 #   }
 # }'
