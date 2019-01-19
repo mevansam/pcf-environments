@@ -28,7 +28,8 @@ opsman_pivnet_glob: '*.ova'
 #   scheduler:p-scheduler/^1\\.2\\.[0-9]+$:*.pivotal::
 #   credhub:credhub-service-broker/^1\\.1\\.[0-9]+$:*.pivotal::
 #   sso:pivotal_single_sign-on_service/^1\\.7\\.[0-9]+$:*.pivotal::
-products: ''
+products: |
+  pas-small:elastic-runtime/^2\\.3\\.[0-9]+$:srt*.pivotal::
 
 # Number of Diego Cells to deploy
 num_diego_cells: 5
