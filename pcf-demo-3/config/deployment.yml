@@ -30,6 +30,7 @@ opsman_pivnet_glob: '*.ova'
 #   sso:pivotal_single_sign-on_service/^1\\.7\\.[0-9]+$:*.pivotal::
 products: |
   pas-small:elastic-runtime/^2\\.3\\.[0-9]+$:srt*.pivotal::
+  pks:pivotal-container-service/^1\\.2\\.[0-9]+$:*.pivotal::
 
 # Number of Diego Cells to deploy
 num_diego_cells: 5
