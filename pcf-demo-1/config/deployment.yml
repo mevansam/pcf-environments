@@ -14,7 +14,7 @@ opsman_pivnet_glob: '*GCP.yml'
 # The 'errands_to_disable' and 'errands_to_enable' fields 
 # should consist of comma separated errand names.
 products: |
-  pas-small:elastic-runtime/^2\\.3\\.[0-9]+$:srt*.pivotal::
+  pas-small:elastic-runtime/^2\\.4\\.[0-9]+$:srt*.pivotal::
   pks:pivotal-container-service/^1\\.2\\.[0-9]+$:*.pivotal::
   harbor:harbor-container-registry/^1\\.6\\.[0-9]+$:*.pivotal::
   healthwatch:p-healthwatch/^1\\.3\\.[0-9]+$:*.pivotal::
