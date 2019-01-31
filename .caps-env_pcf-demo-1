@@ -23,7 +23,7 @@ export TF_VAR_notification_email=msamaratunga@pivotal.io
 # Cloud Automation Pipelines (CAPs) repository
 #
 
-export TF_VAR_automation_pipelines_branch=refactor_bootstrap
+export TF_VAR_automation_pipelines_branch=dev
 
 #
 # Environment configuration repository
