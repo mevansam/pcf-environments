@@ -1,7 +1,7 @@
 locale: Asia/Dubai
 
 # PCF Ops Manager minor version to track
-opsman_major_minor_version: 2\.3\.[0-9]+$
+opsman_major_minor_version: 2\.4\.[0-9]+$
 
 # IAAS Specific Ops Manager Image data to download from Pivnet
 opsman_pivnet_glob: '*GCP.yml'
