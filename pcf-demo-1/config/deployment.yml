@@ -55,3 +55,9 @@ pcf_stop_trigger_days: '[Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, S
 # in the PCF environment should be started
 pcf_start_at: '09:00'
 pcf_start_trigger_days: '[Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]'
+
+#
+# PAS Configuration
+#
+
+pas_org_admin_user: msamaratunga@pivotal.io
