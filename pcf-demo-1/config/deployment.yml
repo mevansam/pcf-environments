@@ -4,7 +4,7 @@ locale: Asia/Dubai
 opsman_major_minor_version: 2\.6\.[0-9]+$
 
 # IAAS Specific Ops Manager Image data to download from Pivnet
-opsman_pivnet_glob: '*GCP.yml'
+opsman_pivnet_glob: 'ops-manager-gcp-*.yml'
 
 # List of products to install. This should be a space 
 # separated list of:
