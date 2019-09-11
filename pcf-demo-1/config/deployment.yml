@@ -23,19 +23,10 @@ products: |
   rabbitmq:p-rabbitmq/^1\\.17\\.[0-9]+$:*.pivotal::
   redis:p-redis/^2\\.2\\.[0-9]+$:*.pivotal::
   alerts:p-event-alerts/^1\\.2\\.[0-9]+$:*.pivotal::
+  scs:p-spring-cloud-services/^3\\.0\\.[0-9]+$:*.pivotal::
+  scdf:p-dataflow/^1\\.6\\.[0-9]+$:*.pivotal::
 
 # products: |
-#   pas-small:elastic-runtime/^2\\.6\\.[0-9]+$:srt*.pivotal::
-#   pks:pivotal-container-service/^1\\.3\\.[0-9]+$:*.pivotal::
-#   harbor:harbor-container-registry/^1\\.7\\.[0-9]+$:*.pivotal::
-#   healthwatch:p-healthwatch/^1\\.4\\.[0-9]+$:*.pivotal::
-#   metrics:apm/^1\\.6\\.[0-9]+$:*.pivotal::
-#   mysql:pivotal-mysql/^2\\.5\\.[0-9]+$:*.pivotal::
-#   rabbitmq:p-rabbitmq/^1\\.15\\.[0-9]+$:*.pivotal::
-#   redis:p-redis/^2\\.0\\.[0-9]+$:*.pivotal::
-#   alerts:p-event-alerts/^1\\.2\\.[0-9]+$:*.pivotal::
-#   scs:p-spring-cloud-services/^2\\.0\\.[0-9]+$:*.pivotal::
-#   scdf:p-dataflow/^1\\.3\\.[0-9]+$:*.pivotal::
 #   scheduler:p-scheduler/^1\\.2\\.[0-9]+$:*.pivotal::
 #   credhub:credhub-service-broker/^1\\.2\\.[0-9]+$:*.pivotal::
 #   sso:pivotal_single_sign-on_service/^1\\.8\\.[0-9]+$:*.pivotal::
