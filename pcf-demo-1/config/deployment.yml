@@ -25,11 +25,9 @@ products: |
   alerts:p-event-alerts/^1\\.2\\.[0-9]+$:*.pivotal::
   scs:p-spring-cloud-services/^3\\.0\\.[0-9]+$:*.pivotal::
   scdf:p-dataflow/^1\\.6\\.[0-9]+$:*.pivotal::
-
-# products: |
-#   scheduler:p-scheduler/^1\\.2\\.[0-9]+$:*.pivotal::
-#   credhub:credhub-service-broker/^1\\.2\\.[0-9]+$:*.pivotal::
-#   sso:pivotal_single_sign-on_service/^1\\.8\\.[0-9]+$:*.pivotal::
+  scheduler:p-scheduler/^1\\.2\\.[0-9]+$:*.pivotal::
+  credhub:credhub-service-broker/^1\\.4\\.[0-9]+$:*.pivotal::
+  sso:pivotal_single_sign-on_service/^1\\.10\\.[0-9]+$:*.pivotal::
 
 # Number of Diego Cells to deploy
 num_diego_cells: 5
