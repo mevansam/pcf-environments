@@ -17,7 +17,6 @@ products: |
   pas-small:elastic-runtime/^2\\.6\\.[0-9]+$:srt*.pivotal::
   pks:pivotal-container-service/^1\\.5\\.[0-9]+$:*.pivotal::
   harbor:harbor-container-registry/^1\\.8\\.[0-9]+$:*.pivotal::
-  ksm:container-services-manager/^0\\.[0-9]+\\.[0-9]+$:*.pivotal::
   healthwatch:p-healthwatch/^1\\.6\\.[0-9]+$:*.pivotal::
   metrics:apm/^1\\.6\\.[0-9]+$:*.pivotal::
   mysql:pivotal-mysql/^2\\.7\\.[0-9]+$:*.pivotal::
