@@ -16,7 +16,7 @@ opsman_pivnet_glob: "ops-manager-gcp-*.yml"
 products: |
   pas-small:elastic-runtime/^2\\.6\\.[0-9]+$:srt*.pivotal::
   pas-windows:pas-windows/^2\\.6\\.[0-9]+$:*.pivotal::
-  pks:pivotal-container-service/^1\\.5\\.[0-9]+$:*.pivotal::
+  pks:pivotal-container-service/^1\\.5\\.[0-9]+$:*::
   harbor:harbor-container-registry/^1\\.8\\.[0-9]+$:*.pivotal::
   healthwatch:p-healthwatch/^1\\.6\\.[0-9]+$:*.pivotal::
   metrics:apm/^1\\.6\\.[0-9]+$:*.pivotal::
