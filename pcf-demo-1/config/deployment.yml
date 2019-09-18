@@ -15,7 +15,7 @@ opsman_pivnet_glob: "ops-manager-gcp-*.yml"
 # should consist of comma separated errand names.
 products: |
   pas-small:elastic-runtime/^2\\.6\\.[0-9]+$:srt*.pivotal::
-  pas-windows::pas-windows/^2\\.6\\.[0-9]+$:*.pivotal::
+  pas-windows:pas-windows/^2\\.6\\.[0-9]+$:*.pivotal::
   pks:pivotal-container-service/^1\\.5\\.[0-9]+$:*.pivotal::
   harbor:harbor-container-registry/^1\\.8\\.[0-9]+$:*.pivotal::
   healthwatch:p-healthwatch/^1\\.6\\.[0-9]+$:*.pivotal::
