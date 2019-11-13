@@ -17,7 +17,7 @@ export TF_VAR_smtp_relay_api_key=$SENDGRID_API_KEY
 
 # Email to send notifications to
 
-export TF_VAR_notification_email=msamaratunga@pivotal.io
+export TF_VAR_notification_email=
 
 #
 # Cloud Automation Pipelines (CAPs) repository
