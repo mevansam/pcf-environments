@@ -19,10 +19,11 @@ products: |
   harbor:harbor-container-registry/^1\\.8\\.[0-9]+$:*.pivotal::
   healthwatch:p-healthwatch/^1\\.7\\.[0-9]+$:*.pivotal::
   metrics:apm/^1\\.6\\.[0-9]+$:*.pivotal::
+  scanner:p-compliance-scanner/^1\\.2\\.[0-9]+$:*.pivotal::
   alerts:p-event-alerts/^1\\.2\\.[0-9]+$:*.pivotal::
   mysql:pivotal-mysql/^2\\.7\\.[0-9]+$:*.pivotal::
-  rabbitmq:p-rabbitmq/^1\\.17\\.[0-9]+$:*.pivotal::
-  redis:p-redis/^2\\.2\\.[0-9]+$:*.pivotal::
+  rabbitmq:p-rabbitmq/^1\\.18\\.[0-9]+$:*.pivotal::
+  redis:p-redis/^2\\.3\\.[0-9]+$:*.pivotal::
 
 # scs:p-spring-cloud-services/^3\\.0\\.[0-9]+$:*.pivotal::
 # scdf:p-dataflow/^1\\.6\\.[0-9]+$:*.pivotal::
