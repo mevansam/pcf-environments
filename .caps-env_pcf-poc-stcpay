@@ -1,0 +1,83 @@
+#!/bin/bash
+
+#
+# Environment variables required by Terraform 
+# to bootstrap and install the PCF environment
+#
+
+export TF_VAR_gcp_credentials=$GOOGLE_CREDENTIALS
+export TF_VAR_gcp_region=$GOOGLE_REGION
+
+export TF_VAR_gcp_storage_access_key=$GCS_STORAGE_ACCESS_KEY
+export TF_VAR_gcp_storage_secret_key=$GCS_STORAGE_SECRET_KEY
+
+export TF_VAR_smtp_relay_host=smtp.sendgrid.net
+export TF_VAR_smtp_relay_port=2525
+export TF_VAR_smtp_relay_api_key=$SENDGRID_API_KEY
+
+# Email to send notifications to
+
+export TF_VAR_notification_email=
+
+#
+# Cloud Automation Pipelines (CAPs) repository
+#
+
+export TF_VAR_automation_pipelines_branch=dev
+
+#
+# Environment configuration repository
+#
+
+export TF_VAR_env_config_repo=https://github.com/mevansam/pcf-environments.git
+export TF_VAR_env_config_repo_branch=master
+export TF_VAR_env_config_path=pcf-poc-stcpay/config
+
+#
+# Automation extensions git repository
+#
+
+export TF_VAR_automation_extensions_repo=https://github.com/mevansam/pcf-environments.git
+export TF_VAR_automation_extensions_repo_branch=master
+
+export TF_VAR_pcf_terraform_templates_path=pcf-poc-stcpay/templates/terraform
+export TF_VAR_pcf_tile_templates_path=pcf-poc-stcpay/templates/tile
+
+# Pivnet Token for downloading pivotal releases
+export TF_VAR_pivnet_token=$PIVNET_TOKEN
+
+# VPC configurations
+
+export TF_VAR_vpc_name=pcf-poc-stcpay
+export TF_VAR_vpc_dns_zone=stcpay.pocs.pcfs.io
+export TF_VAR_vpc_parent_dns_zone_name=pocs-pcfs-io
+
+export TF_VAR_terraform_state_bucket=tfstate-${GOOGLE_REGION}
+
+export TF_VAR_bastion_instance_type=n1-standard-8
+export TF_VAR_bastion_data_disk_size=500
+
+export TF_VAR_bastion_admin_user=bastion-admin
+export TF_VAR_bastion_setup_vpn=true
+export TF_VAR_bastion_allow_public_ssh=true
+
+# Network
+
+export TF_VAR_pcf_environments='["sandbox"]'
+
+export TF_VAR_pcf_networks='{
+  sandbox = {
+    service_networks    = "services,dynamic-services"
+    subnet_config_order = "infrastructure,pas-1,services-1,dynamic-services-1,monitoring"
+  }
+}'
+
+export TF_VAR_pcf_network_subnets='{
+  sandbox = {
+    infrastructure     = "192.168.101.0/26"
+    pas-1              = "192.168.4.0/22"
+    services-1         = "192.168.8.0/22"
+    dynamic-services-1 = "192.168.12.0/22"
+    monitoring         = "192.168.101.64/26"
+  }
+}'
