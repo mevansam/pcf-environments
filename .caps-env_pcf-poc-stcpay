@@ -55,6 +55,8 @@ export TF_VAR_vpc_parent_dns_zone_name=pocs-pcfs-io
 export TF_VAR_terraform_state_bucket=tfstate-${GOOGLE_REGION}
 
 export TF_VAR_bastion_instance_type=n1-standard-8
+export TF_VAR_bastion_use_project_image=false
+export TF_VAR_bastion_image_name=appbricks-bastion-inceptor_0.0.1
 export TF_VAR_bastion_data_disk_size=500
 
 export TF_VAR_bastion_admin_user=bastion-admin
